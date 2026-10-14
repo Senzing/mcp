@@ -2,13 +2,13 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.senzing/mcp",
   "title": "Senzing",
-  "description": "Entity resolution \u2014 data mapping, SDK code generation, docs search, and error troubleshooting",
+  "description": "Entity resolution — data mapping, SDK code generation, docs search, and error troubleshooting",
   "websiteUrl": "https://senzing.com",
   "repository": {
     "url": "https://github.com/Senzing/mcp",
     "source": "github"
   },
-  "version": "1.37.29",
+  "version": "1.38.2",
   "remotes": [
     {
       "type": "streamable-http",
