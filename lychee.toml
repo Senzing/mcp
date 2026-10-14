@@ -5,6 +5,10 @@ exclude = [
   "^https://(www\\.)?senzing\\.com/",
   # Endpoint and registry API: checked semantically by scripts/check_readme.py / server.json job.
   "^https://mcp\\.senzing\\.com/mcp$",
+  # One-click install redirectors answer 302 to an app scheme (vscode:, vsweb+mcp:) a link checker
+  # cannot follow; scripts/check_readme.py decodes each one and checks it targets the endpoint.
+  "^https://(insiders\\.)?vscode\\.dev/redirect/mcp/install",
+  "^https://aka\\.ms/vs/mcp-install",
 ]
 accept = ["200..=299", "429"]
 max_retries = 3
