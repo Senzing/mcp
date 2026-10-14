@@ -1,0 +1,21 @@
+Copyright © Senzing, Inc. All rights reserved.
+
+The contents of this repository — README, documentation and the server.json
+registry manifest — are proprietary to Senzing, Inc. and are provided to help
+you connect to and use the Senzing MCP server.
+
+You may use and copy the configuration examples in this repository to connect
+your own MCP clients and agents to the Senzing MCP server. Except as expressly
+permitted above, you may not redistribute, sublicense, sell, or create
+derivative works of these materials without the prior written permission of
+Senzing, Inc.
+
+The materials and the Senzing MCP server are provided "AS IS", without warranty
+of any kind, express or implied, including but not limited to the warranties of
+merchantability, fitness for a particular purpose, accuracy, completeness, and
+noninterference. In no event shall Senzing, Inc. be liable for any claim,
+damages, or other liability arising from, out of, or in connection with these
+materials or their use.
+
+Use of Senzing software is separately governed by the Senzing End User License
+Agreement: https://senzing.com/end-user-license-agreement/
