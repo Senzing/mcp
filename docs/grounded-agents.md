@@ -11,9 +11,10 @@ server or from the model's training data:
    `claude-sonnet-5-5`, `claude-opus-5-5` and `claude-fable-5-1` reject `tool_choice` `any`/`tool`
    with HTTP 400. One request tells you; a request per thinking × `tool_choice` combination shows which work.
 3. **Turn extended thinking off** (`thinking: {"type": "disabled"}`). In our measurements it
-   added latency and did not make answers more grounded. The off value differs by model, and
-   models that cannot turn thinking off cannot be forced to call a tool with it on except in
-   `adaptive` mode.
+   added latency and did not make answers more grounded. The off value differs by model
+   (`disabled` on Haiku 5.5, Sonnet 5, Opus 5 and Sonnet 4.6; `between_tools` on Sonnet 5.5; Fable 5
+   cannot turn it off). With thinking on, forced tool use is accepted only in `adaptive` mode, and
+   the forced turn then does not think.
 4. **Verify after every deploy by asking a real question.** An HTTP 200 from your service does
    not prove the model call works.
 
@@ -22,7 +23,7 @@ each answer checked against the tool results the bot received, forced tool use, 
 unless noted. This is one bot and one system prompt; re-measure before relying on it.
 
 | Model | Ungrounded claims | Verified wrong facts | Median first response |
-|-------|-------------------|----------------------|-----------------------|
+| --- | --- | --- | --- |
 | `claude-haiku-5-5` | 6.5% | 0 | 4.5 s |
 | `claude-sonnet-5` | 10.5% | 0 | 6.8 s |
 | `claude-sonnet-5`, adaptive thinking | 12.2% | 4 | 7.1 s |

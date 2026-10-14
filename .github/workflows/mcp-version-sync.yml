@@ -73,4 +73,4 @@ jobs:
             (server.json said v${{ steps.ours.outputs.version }}).
 
             **Version-only sync.** If this release changed the tool surface (a tool added,
-            removed or renamed), update the README's "What it can do" table too.
+            removed or renamed), update the README's Tools table too.

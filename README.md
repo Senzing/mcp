@@ -1,5 +1,3 @@
-<!-- TODO(logo): add a Senzing logo committed to this repo (e.g. images/senzing-logo.svg) above the title; do not hotlink. -->
-
 <h1 align="center">Senzing MCP Server</h1>
 
 <p align="center">
@@ -10,7 +8,7 @@
   <a href="https://registry.modelcontextprotocol.io/v0/servers/com.senzing%2Fmcp/versions/latest"><img src="https://img.shields.io/badge/MCP_Registry-com.senzing%2Fmcp-000000?logo=modelcontextprotocol&logoColor=white" alt="MCP Registry: com.senzing/mcp"></a>
   <img src="https://img.shields.io/badge/Transport-Streamable_HTTP-0098FF" alt="Transport: Streamable HTTP">
   <img src="https://img.shields.io/badge/Auth-none-2EBC4F" alt="Authentication: none">
-  <img src="https://img.shields.io/badge/Cost-free-2EBC4F" alt="Cost: free">
+  <img src="https://img.shields.io/badge/Hosted_server-free_to_use-2EBC4F" alt="Hosted server: free to use">
 </p>
 
 <p align="center">
@@ -19,7 +17,7 @@
   <a href="#tools">Tools</a> ·
   <a href="#prompts">Prompts</a> ·
   <a href="#privacy-and-terms">Privacy and terms</a> ·
-  <a href="#support">Support</a>
+  <a href="#questions-and-feedback">Questions and feedback</a>
 </p>
 
 ---
@@ -30,44 +28,40 @@ rather than model training data. Use it to deduplicate lists, match or merge rec
 sources, screen against watchlists, and produce the resolved entities that golden records for MDM
 and customer 360 are built from.
 
-Hand your AI assistant a few unmapped data files and describe what you want, and it can map your
-sources, deploy and load Senzing, resolve and analyze the data, and build an interactive explorer
-over the results. What is normally a multi-week integration becomes an afternoon, with no
-entity-resolution background required. It also covers the pieces on their own: SDK code in Python,
-Java and C# (official) plus Rust and TypeScript/Node.js (community), installation and deployment,
-error troubleshooting, V3→V4 migration, and the business case.
+Because it carries the full runbook, you don't drive it one step at a time. Hand your AI assistant
+a few unmapped data files and describe what you want, and it can map your sources, deploy and load
+Senzing, resolve and analyze the data, and build an interactive explorer over the results. What is
+normally a multi-week integration becomes an afternoon, with no entity-resolution background
+required.
 
-Then start answering who is who and who is related to whom, or build an entity-resolved knowledge
-graph that surfaces the connections nobody declared. Every resolution carries its evidence: why two
-records came together, or why they didn't.
-
-| | |
-|---|---|
-| **Endpoint** | `https://mcp.senzing.com/mcp` |
-| **Transport** | Streamable HTTP |
-| **Authentication** | None |
-| **Registry name** | `com.senzing/mcp` |
-| **Cost** | Free |
+You just ask. Then start answering who is who and who is related to whom, or build an
+entity-resolved knowledge graph that surfaces the connections nobody declared. Every resolution
+carries its evidence: why two records came together, or why they didn't. Your assistant can surface
+that explanation for any match you question.
 
 ## Install
+
+**Endpoint:** `https://mcp.senzing.com/mcp` (Streamable HTTP, no authentication) · **Registry
+name:** `com.senzing/mcp` · The hosted server is free to use; Senzing software is licensed
+separately.
 
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
 [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D&quality=insiders)
 [![Install in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Server-C16FDE?style=flat-square&logo=visualstudio&logoColor=white)](https://aka.ms/vs/mcp-install?%7B%22name%22%3A%22senzing%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
-[![Install in Cursor](https://img.shields.io/badge/Cursor-Install_Server-000000?style=flat-square&logo=cursor&logoColor=white)](https://cursor.com/en/install-mcp?name=senzing&config=eyJ1cmwiOiJodHRwczovL21jcC5zZW56aW5nLmNvbS9tY3AifQ==)
+[![Install in Cursor](https://img.shields.io/badge/Cursor-Install_Server-000000?style=flat-square&logo=cursor&logoColor=white)](https://cursor.com/install-mcp?name=senzing&config=eyJ1cmwiOiJodHRwczovL21jcC5zZW56aW5nLmNvbS9tY3AifQ==)
 
 The buttons above install the server in one click. For other clients:
 
 | Client | How to connect |
-|---|---|
-| **Claude** (claude.ai, Desktop, Cowork) | Install from the [Connectors Directory](https://claude.ai/directory/senzing), or **Customize → Connectors → + Add → Add custom connector** with the URL `https://mcp.senzing.com/mcp` |
+| --- | --- |
+| **Claude** (claude.ai, Desktop, Cowork) | Install from the [Connectors Directory](https://claude.ai/directory/senzing), or **Customize → Connectors → + Add → Add custom connector** with the URL `https://mcp.senzing.com/mcp` (Team and Enterprise owners: **Organization settings → Connectors**) |
 | **Claude Code** | `claude mcp add --transport http senzing https://mcp.senzing.com/mcp` |
 | **OpenAI Codex** | `codex mcp add senzing --url https://mcp.senzing.com/mcp` |
 | **Gemini CLI** | `gemini mcp add --transport http senzing https://mcp.senzing.com/mcp` |
 | **VS Code** (manual) | `.vscode/mcp.json` — see below |
 | **Cursor** (manual) | `.cursor/mcp.json` or `~/.cursor/mcp.json` — see below |
 | **Kiro** | `.kiro/settings/mcp.json` or `~/.kiro/settings/mcp.json` — see below |
-| **stdio-only clients** | `npx -y mcp-remote https://mcp.senzing.com/mcp` |
+| **stdio-only clients** | Run it through `mcp-remote` — see below |
 | **Any other MCP client** | Add a remote (Streamable HTTP) server with the URL `https://mcp.senzing.com/mcp` |
 
 <details>
@@ -102,6 +96,22 @@ The buttons above install the server in one click. For other clients:
 </details>
 
 <details>
+<summary><b>stdio-only clients</b> — via <code>mcp-remote</code></summary>
+
+```json
+{
+  "mcpServers": {
+    "senzing": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.senzing.com/mcp"]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
 <summary><b>Codex</b> — <code>~/.codex/config.toml</code></summary>
 
 ```toml
@@ -111,10 +121,10 @@ url = "https://mcp.senzing.com/mcp"
 
 </details>
 
-> [!TIP]
-> For the best experience, use an agentic coding client, or allowlist `mcp.senzing.com`. Mapping
-> your own data and running Senzing need an assistant that can run code; questions, docs search and
-> SDK code work in any client.
+**Tip:** for the best experience, use an agentic coding client (Claude Code, Codex, Gemini CLI,
+Cursor); if your environment restricts network access, allowlist `mcp.senzing.com`. Mapping your own
+data and running Senzing need an assistant that can run code; questions, documentation search and
+SDK code work in any client.
 
 ## What you can ask
 
@@ -126,18 +136,22 @@ url = "https://mcp.senzing.com/mcp"
 
 ## Tools
 
+Each piece is also available on its own: SDK code in Python, Java and C# (official SDKs) and Rust
+and TypeScript/Node.js (community SDKs), installation and deployment, error troubleshooting, V3→V4
+migration, and pricing and ROI.
+
 | Area | Tool | What it does |
-|---|---|---|
+| --- | --- | --- |
 | **Start here** | `get_capabilities` | Overview of the server and suggested workflows |
 | **Map your data** | `mapping_workflow` | Guided 8-step mapping of source data to the Senzing Entity Specification |
-| | `analyze_record` | Analyzer script that validates mapped JSONL on your machine |
+| | `analyze_record` | Analyzer script that validates your mapped records on your machine |
 | | `download_resource` | Workflow resources, as a fallback when a URL can't be fetched |
 | **Build with the SDK** | `sdk_guide` | Install and setup across Linux (apt/yum), macOS, Windows and Docker, for each SDK language |
 | | `generate_scaffold` | SDK code from real indexed snippets: Python, Java, C# (official); Rust, TypeScript/Node.js (community) |
 | | `get_sdk_reference` | Method signatures per language binding, flags, response schemas, V3→V4 migration |
 | **Find answers** | `search_docs` | Full-text search of Senzing documentation |
-| | `find_examples` | Code examples from 52 indexed Senzing GitHub repositories |
-| | `explain_error_code` | 461 Senzing error codes with causes and fixes |
+| | `find_examples` | Code examples from the indexed Senzing GitHub repositories |
+| | `explain_error_code` | Senzing error codes with causes and fixes |
 | **Try it** | `get_sample_data` | Real sample data: CORD datasets (Las Vegas, London, Moscow) and the Senzing truth set |
 | **Report** | `reporting_guide` | Reporting and visualization patterns: export, SQL analytics, data mart, dashboards, graph |
 | **Feedback** | `submit_feedback` | Send feedback or request a free evaluation license |
@@ -148,7 +162,7 @@ The server also ships 31 ready-made prompts: workflow templates your client can 
 commands or menu items. A few of them:
 
 | Prompt | What it walks through |
-|---|---|
+| --- | --- |
 | `why-senzing` | Explains Senzing for a given audience |
 | `plan-a-poc` | Planning a proof of concept |
 | `map-data-source` | Mapping a data source to the Entity Specification |
@@ -161,23 +175,19 @@ Ask your assistant to list the Senzing prompts to see them all.
 
 ## More from Senzing
 
-| | What it is | Where |
-|---|---|---|
-| **Claude Code plugin** | Senzing skills for Claude Code: install, analyze, build, demo, troubleshoot, recipes | [Senzing/senzing-claude-plugins](https://github.com/Senzing/senzing-claude-plugins) |
+| Project | What it is | Where |
+| --- | --- | --- |
+| **Claude Code plugin** | Senzing skills for Claude Code: install, analyze, build, demo, troubleshoot, recipes and more | [Senzing/senzing-claude-plugins](https://github.com/Senzing/senzing-claude-plugins) |
 | **Agent Skill** | Portable skill that teaches any skill-capable agent how to use this server | [Senzing/senzing-mcp-skill](https://github.com/Senzing/senzing-mcp-skill) |
 | **Ask Senzing** | Chat with the Senzing docs in your browser, powered by this server | [ask.senzing.com](https://ask.senzing.com) |
 | **Distributed build** | The same server for air-gapped and private networks, for licensed Senzing customers | [Contact Senzing](https://senzing.com/contact/) |
-
-## Building your own agent
-
-To keep an agent's Senzing answers grounded in this server rather than model training data, force a
-tool call on the first turn (`tool_choice: any`), use a model that accepts forced tool use, and keep
-extended thinking off. Details and measurements: [docs/grounded-agents.md](docs/grounded-agents.md).
+| **Building your own agent** | How to keep an API-driven agent's answers grounded in this server | [docs/grounded-agents.md](docs/grounded-agents.md) |
 
 ## Privacy and terms
 
-- The server needs no live Senzing instance and no authentication, and sends no user data or PII
-  to Senzing.
+- The server needs no live Senzing instance and no authentication. Your data files never leave
+  your machine: mapping and resolution run locally, and only the tool arguments you send (field
+  names, settings, questions) reach this server.
 - Senzing is a headless developer library your assistant deploys locally in your environment.
   Mapping and resolution run there, never on Senzing's servers, and Senzing contains only the data
   you load into it.
@@ -186,9 +196,9 @@ extended thinking off. Details and measurements: [docs/grounded-agents.md](docs/
 - The hosted server is provided AS-IS, without warranty or support commitment. The server also
   exposes these terms as the `senzing://terms-of-service` resource.
 
-## Support
+## Questions and feedback
 
-Questions and feedback: [senzing.com/contact](https://senzing.com/contact/) · support@senzing.com,
-or ask your assistant to use `submit_feedback`.
+Use [senzing.com/contact](https://senzing.com/contact/) or <support@senzing.com>, or ask your
+assistant to use `submit_feedback`.
 
 See [LICENSE](LICENSE).
