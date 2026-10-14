@@ -185,6 +185,8 @@ Ask your assistant to list the Senzing prompts to see them all.
 
 ## Privacy and terms
 
+The hosted server has its own [privacy policy](https://mcp.senzing.com/privacy). In short:
+
 - The server needs no live Senzing instance and no authentication. Your data files never leave
   your machine: mapping and resolution run locally, and only the tool arguments you send (field
   names, settings, questions) reach this server.

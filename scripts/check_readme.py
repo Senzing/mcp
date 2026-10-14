@@ -7,7 +7,8 @@ publishes — so the README cannot drift from it. Checks:
 * every ```json / ```toml block parses;
 * every one-click install link (VS Code, VS Code Insiders, Visual Studio, Cursor) decodes to a
   config whose URL is the endpoint;
-* every https URL that mentions the endpoint's host is exactly the endpoint.
+* every URL on the endpoint's host that a client would connect to (bare host, /mcp…, /sse…)
+  is exactly the endpoint.
 
 Exits 1 with one line per problem.
 """
@@ -70,12 +71,24 @@ def check_install_links() -> int:
     return len(links)
 
 
+def looks_like_endpoint(url: str) -> bool:
+    """A URL on the endpoint's host that a client would connect to: the bare host, or a path
+    under /mcp or /sse. Other pages on the host (e.g. /privacy) are ordinary links that the
+    link checker covers."""
+    path = urllib.parse.urlparse(url).path
+    return path in ("", "/") or path.startswith(("/mcp", "/sse"))
+
+
 def check_endpoint_mentions() -> int:
-    mentions = re.findall(rf"https://{re.escape(HOST)}[^\s\"'`)<>\]]*", README)
-    for url in mentions:
-        if url.rstrip(".,") != ENDPOINT:
+    mentions = [
+        url.rstrip(".,")
+        for url in re.findall(rf"https://{re.escape(HOST)}[^\s\"'`)<>\]]*", README)
+    ]
+    endpoints = [url for url in mentions if looks_like_endpoint(url)]
+    for url in endpoints:
+        if url != ENDPOINT:
             problems.append(f"endpoint mention {url!r} is not {ENDPOINT}")
-    return len(mentions)
+    return len(endpoints)
 
 
 blocks = check_blocks()
