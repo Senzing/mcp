@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/senzing-logo-dark-theme.png">
+    <img src="assets/senzing-logo-light-theme.png" alt="Senzing" width="240">
+  </picture>
+</p>
+
 <h1 align="center">Senzing MCP Server</h1>
 
 <p align="center">
@@ -182,7 +189,6 @@ Ask your assistant to list the Senzing prompts to see them all.
 | **Claude Code plugin** | Senzing skills for Claude Code: install, analyze, build, demo, troubleshoot, recipes and more | [Senzing/senzing-claude-plugins](https://github.com/Senzing/senzing-claude-plugins) |
 | **Agent Skill** | Portable skill that teaches any skill-capable agent how to use this server | [Senzing/senzing-mcp-skill](https://github.com/Senzing/senzing-mcp-skill) |
 | **Ask Senzing** | Chat with the Senzing docs in your browser, powered by this server | [ask.senzing.com](https://ask.senzing.com) |
-| **Distributed build** | The same server for air-gapped and private networks, for licensed Senzing customers | [Contact Senzing](https://senzing.com/contact/) |
 | **Building your own agent** | How to keep an API-driven agent's answers grounded in this server | [docs/grounded-agents.md](docs/grounded-agents.md) |
 
 ## Privacy and terms
