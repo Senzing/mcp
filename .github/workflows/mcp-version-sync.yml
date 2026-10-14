@@ -1,0 +1,76 @@
+name: MCP version sync
+
+# Keeps server.json's version in lockstep with the hosted Senzing MCP server.
+# The registry entry itself is published by the server's own release workflow;
+# this copy documents it, so it must not drift. Runs daily; trigger manually
+# right after an MCP release for an immediate sync. Version-only drift is
+# auto-bumped — a tool-surface change still needs a README update (the opened
+# PR says so).
+
+on:
+  schedule:
+    - cron: "41 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: mcp-version-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    name: Sync server.json version to the MCP server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - name: Read live MCP server version
+        id: live
+        run: |
+          set -euo pipefail
+          V=$(curl -sfL --max-time 30 https://mcp.senzing.com/.well-known/agent-card.json | jq -r '.version')
+          case "$V" in
+            [0-9]*.[0-9]*.[0-9]*) : ;;
+            *) echo "::error::unexpected MCP version '$V'"; exit 1 ;;
+          esac
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "Live MCP server version: $V"
+
+      - name: Read server.json version
+        id: ours
+        run: |
+          set -euo pipefail
+          CUR=$(jq -r '.version' server.json)
+          echo "version=$CUR" >> "$GITHUB_OUTPUT"
+          echo "server.json version: $CUR"
+
+      - name: Bump on drift
+        id: bump
+        if: steps.live.outputs.version != steps.ours.outputs.version
+        env:
+          NEW: ${{ steps.live.outputs.version }}
+        run: |
+          set -euo pipefail
+          jq --arg v "$NEW" '.version = $v' server.json > server.json.new
+          mv server.json.new server.json
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open sync PR
+        if: steps.bump.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          sign-commits: true
+          branch: mcp-version-sync/v${{ steps.live.outputs.version }}
+          title: "chore: sync to MCP server v${{ steps.live.outputs.version }}"
+          commit-message: "chore: sync server.json to MCP server v${{ steps.live.outputs.version }}"
+          body: |
+            Automated: the hosted Senzing MCP server is now **v${{ steps.live.outputs.version }}**
+            (server.json said v${{ steps.ours.outputs.version }}).
+
+            **Version-only sync.** If this release changed the tool surface (a tool added,
+            removed or renamed), update the README's "What it can do" table too.
