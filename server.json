@@ -8,7 +8,7 @@
     "url": "https://github.com/Senzing/mcp",
     "source": "github"
   },
-  "version": "1.39.0",
+  "version": "1.39.4",
   "remotes": [
     {
       "type": "streamable-http",
