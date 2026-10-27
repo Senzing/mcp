@@ -12,10 +12,10 @@
 </p>
 
 <p align="center">
-  <a href="https://registry.modelcontextprotocol.io/v0/servers/com.senzing%2Fmcp/versions/latest"><img src="https://img.shields.io/badge/MCP_Registry-com.senzing%2Fmcp-000000?logo=modelcontextprotocol&logoColor=white" alt="MCP Registry: com.senzing/mcp"></a>
-  <img src="https://img.shields.io/badge/Transport-Streamable_HTTP-0098FF" alt="Transport: Streamable HTTP">
-  <img src="https://img.shields.io/badge/Auth-none-2EBC4F" alt="Authentication: none">
-  <img src="https://img.shields.io/badge/Hosted_server-free_to_use-2EBC4F" alt="Hosted server: free to use">
+  <a href="https://registry.modelcontextprotocol.io/v0/servers/com.senzing%2Fmcp/versions/latest"><img src="https://img.shields.io/badge/MCP_Registry-com.senzing%2Fmcp-F57826?logo=modelcontextprotocol&logoColor=white&style=flat-square&labelColor=0F0D0C" alt="MCP Registry: com.senzing/mcp"></a>
+  <img src="https://img.shields.io/badge/Transport-Streamable_HTTP-F57826?style=flat-square&labelColor=0F0D0C" alt="Transport: Streamable HTTP">
+  <img src="https://img.shields.io/badge/Auth-none-F57826?style=flat-square&labelColor=0F0D0C" alt="Authentication: none">
+  <img src="https://img.shields.io/badge/Hosted_server-free_to_use-F57826?style=flat-square&labelColor=0F0D0C" alt="Hosted server: free to use">
 </p>
 
 <p align="center">
@@ -27,7 +27,7 @@
   <a href="#questions-and-feedback">Questions and feedback</a>
 </p>
 
----
+<img src="assets/ember-rule.svg" alt="" width="100%" height="4">
 
 The [Senzing®](https://senzing.com) MCP server is a forward-deployed engineer in a box: ask it
 anything about Senzing. Every answer is grounded in Senzing's own documentation and indexed code
@@ -52,11 +52,11 @@ that explanation for any match you question.
 name:** `com.senzing/mcp` · The hosted server is free to use; Senzing software is licensed
 separately.
 
-[![Add to Claude](https://img.shields.io/badge/Claude-Add_Connector-D97757?style=flat-square&logo=claude&logoColor=white)](https://claude.ai/directory/senzing)
-[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
-[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D&quality=insiders)
-[![Install in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Server-C16FDE?style=flat-square&logo=visualstudio&logoColor=white)](https://aka.ms/vs/mcp-install?%7B%22name%22%3A%22senzing%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
-[![Install in Cursor](https://img.shields.io/badge/Cursor-Install_Server-000000?style=flat-square&logo=cursor&logoColor=white)](https://cursor.com/install-mcp?name=senzing&config=eyJ1cmwiOiJodHRwczovL21jcC5zZW56aW5nLmNvbS9tY3AifQ==)
+[![Add to Claude](https://img.shields.io/badge/Claude-Add_Connector-F57826?style=flat-square&logo=claude&logoColor=white&labelColor=0F0D0C)](https://claude.ai/directory/senzing)
+[![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-F57826?style=flat-square&logo=visualstudiocode&logoColor=white&labelColor=0F0D0C)](https://vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
+[![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-F57826?style=flat-square&logo=visualstudiocode&logoColor=white&labelColor=0F0D0C)](https://insiders.vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D&quality=insiders)
+[![Install in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Server-F57826?style=flat-square&logo=visualstudio&logoColor=white&labelColor=0F0D0C)](https://aka.ms/vs/mcp-install?%7B%22name%22%3A%22senzing%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
+[![Install in Cursor](https://img.shields.io/badge/Cursor-Install_Server-F57826?style=flat-square&logo=cursor&logoColor=white&labelColor=0F0D0C)](https://cursor.com/install-mcp?name=senzing&config=eyJ1cmwiOiJodHRwczovL21jcC5zZW56aW5nLmNvbS9tY3AifQ==)
 
 The buttons above add the server in one click (Claude through its Connectors Directory). For other
 clients:
