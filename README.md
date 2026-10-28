@@ -152,17 +152,17 @@ migration, and pricing and ROI.
 | Area | Tool | What it does |
 | --- | --- | --- |
 | **Start here** | `get_capabilities` | Overview of the server and suggested workflows |
-| **Map your data** | `mapping_workflow` | Guided 8-step mapping of source data to the Senzing Entity Specification |
+| **Map your data** | `mapping_workflow` | Guided 8-step mapping of source data to the Senzing Entity Specification; optional `environment` (Snowflake, AWS Lambda, Azure Functions, Kafka, Spark) adds that platform's rules up front |
 | | `analyze_record` | Analyzer script that validates your mapped records on your machine |
 | | `download_resource` | Workflow resources, as a fallback when a URL can't be fetched |
-| **Build with the SDK** | `sdk_guide` | Install and setup across Linux (apt/yum), macOS, Windows and Docker, for each SDK language |
+| **Build with the SDK** | `sdk_guide` | Install and setup across Linux (apt/yum), macOS, Windows and Docker, for each SDK language; optional `environment` adds the target platform's rules up front |
 | | `generate_scaffold` | SDK code from real indexed snippets: Python, Java, C# (official); Rust, TypeScript/Node.js (community) |
 | | `get_sdk_reference` | Method signatures per language binding, flags, response schemas, V3→V4 migration |
 | **Find answers** | `search_docs` | Full-text search of Senzing documentation |
 | | `find_examples` | Code examples from the indexed Senzing GitHub repositories |
 | | `explain_error_code` | Senzing error codes with causes and fixes |
 | **Try it** | `get_sample_data` | Real sample data: CORD datasets (Las Vegas, London, Moscow) and the Senzing truth set |
-| **Report** | `reporting_guide` | Reporting and visualization patterns: export, SQL analytics, data mart, dashboards, graph |
+| **Report** | `reporting_guide` | Reporting and visualization patterns: export, SQL analytics, data mart, dashboards, graph; optional `environment` adds the target platform's rules up front |
 | **Feedback** | `submit_feedback` | Send feedback or request a free evaluation license |
 
 ## Prompts
