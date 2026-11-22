@@ -53,19 +53,21 @@ name:** `com.senzing/mcp` · The hosted server is free to use; Senzing software 
 separately.
 
 [![Add to Claude](https://img.shields.io/badge/Claude-Add_Connector-D97757?style=flat-square&logo=claude&logoColor=white)](https://claude.ai/directory/senzing)
+[![Install in ChatGPT and Codex](https://img.shields.io/badge/ChatGPT_and_Codex-Install_Plugin-10A37F?style=flat-square)](https://chatgpt.com/plugins/plugin_asdk_app_6af86f982ca08191b15c32c5c9c485a1)
 [![Install in VS Code](https://img.shields.io/badge/VS_Code-Install_Server-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white)](https://vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
 [![Install in VS Code Insiders](https://img.shields.io/badge/VS_Code_Insiders-Install_Server-24bfa5?style=flat-square&logo=visualstudiocode&logoColor=white)](https://insiders.vscode.dev/redirect/mcp/install?name=senzing&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D&quality=insiders)
 [![Install in Visual Studio](https://img.shields.io/badge/Visual_Studio-Install_Server-C16FDE?style=flat-square&logo=visualstudio&logoColor=white)](https://aka.ms/vs/mcp-install?%7B%22name%22%3A%22senzing%22%2C%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fmcp.senzing.com%2Fmcp%22%7D)
 [![Install in Cursor](https://img.shields.io/badge/Cursor-Install_Server-000000?style=flat-square&logo=cursor&logoColor=white)](https://cursor.com/install-mcp?name=senzing&config=eyJ1cmwiOiJodHRwczovL21jcC5zZW56aW5nLmNvbS9tY3AifQ==)
 
-The buttons above add the server in one click (Claude through its Connectors Directory). For other
-clients:
+The buttons above add the server in one click (Claude through its Connectors Directory, ChatGPT
+and Codex through their plugin directory). For other clients:
 
 | Client | How to connect |
 | --- | --- |
 | **Claude** (claude.ai, Desktop, Cowork) | Install from the [Connectors Directory](https://claude.ai/directory/senzing), or **Customize → Connectors → + Add → Add custom connector** with the URL `https://mcp.senzing.com/mcp` (Team and Enterprise owners: **Organization settings → Connectors**) |
 | **Claude Code** | `claude mcp add --transport http senzing https://mcp.senzing.com/mcp` |
-| **OpenAI Codex** | `codex mcp add senzing --url https://mcp.senzing.com/mcp` |
+| **ChatGPT** | Install the [Senzing plugin](https://chatgpt.com/plugins/plugin_asdk_app_6af86f982ca08191b15c32c5c9c485a1) from the ChatGPT and Codex plugin directory; it bundles this server with the `senzing-entity-resolution` skill |
+| **OpenAI Codex** | Install the same [Senzing plugin](https://chatgpt.com/plugins/plugin_asdk_app_6af86f982ca08191b15c32c5c9c485a1), or `codex mcp add senzing --url https://mcp.senzing.com/mcp` |
 | **Gemini CLI** | `gemini mcp add --transport http senzing https://mcp.senzing.com/mcp` |
 | **VS Code** (manual) | `.vscode/mcp.json` — see below |
 | **Cursor** (manual) | `.cursor/mcp.json` or `~/.cursor/mcp.json` — see below |
@@ -187,6 +189,7 @@ Ask your assistant to list the Senzing prompts to see them all.
 | Project | What it is | Where |
 | --- | --- | --- |
 | **Claude Code plugin** | Senzing skills for Claude Code: install, analyze, build, demo, troubleshoot, recipes and more | [Senzing/senzing-claude-plugins](https://github.com/Senzing/senzing-claude-plugins) |
+| **ChatGPT and Codex plugin** | This server plus the `senzing-entity-resolution` skill, packaged for ChatGPT and Codex | [ChatGPT and Codex plugin directory](https://chatgpt.com/plugins/plugin_asdk_app_6af86f982ca08191b15c32c5c9c485a1) |
 | **Agent Skill** | Portable skill that teaches any skill-capable agent how to use this server | [Senzing/senzing-mcp-skill](https://github.com/Senzing/senzing-mcp-skill) |
 | **Ask Senzing** | Chat with the Senzing docs in your browser, powered by this server | [ask.senzing.com](https://ask.senzing.com) |
 | **Building your own agent** | How to keep an API-driven agent's answers grounded in this server | [docs/grounded-agents.md](docs/grounded-agents.md) |
